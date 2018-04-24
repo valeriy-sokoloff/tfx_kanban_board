@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :boards, param: :slug, only:[:show] do
+        resources :lists, only: [:create, :destroy] do
+          resources :cards, only: [:create, :update, :destroy]
+        end
+      end
+    end
+  end
+
+  resources :boards, only:[:index, :show], param: :slug
+
+  root to: "boards#index"
 end

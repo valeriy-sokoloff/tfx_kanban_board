@@ -1,0 +1,6 @@
+<% content_for(:head) do %>
+  <%= javascript_pack_tag 'hello_vue' %>
+  <%= stylesheet_pack_tag 'hello_vue' %>
+<% end %>
+
+<div id="app" data-board-slug="<%= @board.slug %>"></div>
