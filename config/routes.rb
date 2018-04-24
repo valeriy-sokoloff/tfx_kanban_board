@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :boards, only:[:index, :show], param: :slug
+  resources :boards, only:[:index, :show, :create], param: :slug
 
   root to: "boards#index"
 end
