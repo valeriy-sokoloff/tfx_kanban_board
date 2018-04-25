@@ -3,4 +3,9 @@
   <%= stylesheet_pack_tag 'main' %>
 <% end %>
 
-<div id="app" data-board-slug="<%= @board.slug %>"></div>
+<% ws_url = Rails.env.production ? 'ws://localhost:3000/cable' : 'wss://immense-spire-48509.herokuapp.com/cable' %>
+
+<div id="app"
+     data-board-slug="<%= @board.slug %>"
+     data-ws-url="<%= ws_url %>">
+</div>

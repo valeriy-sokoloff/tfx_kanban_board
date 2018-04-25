@@ -1,11 +1,13 @@
 <template>
   <div id="board" class="container-fluid">
+    <div class="row py-3">
+      <div class="col">
+        <button class="btn btn-outline-dark btn-sm" @click="createList">Add a List...</button>
+      </div>
+    </div>
+
     <div class="row">
       <list v-for="list in sharedStore.lists" :list="list" :key="list.id" @removeList="removeList"></list>
-
-      <div class="col-2">
-        <button class="btn" @click="createList">New List</button>
-      </div>
     </div>
   </div>
 </template>

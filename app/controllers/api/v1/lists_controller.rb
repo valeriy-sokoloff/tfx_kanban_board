@@ -1,4 +1,7 @@
 class Api::V1::ListsController < ActionController::API
+  include SetBoard
+  include Broadcastable
+
   def create
     @board = Board.where(slug: params.require(:board_slug)).first
     @board.lists.create
